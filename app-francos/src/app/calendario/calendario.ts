@@ -11,8 +11,15 @@ import { MatCalendarCellClassFunction, MatDatepickerModule } from '@angular/mate
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import * as XLSX from 'xlsx';
+
+// Interfaz para estructurar los datos extraídos del Excel
+interface FilaExcel {
+  Nombre?: string;
+  [fecha: string]: string | number | undefined | Date;
+}
 
 @Component({
   selector: 'app-calendario',
@@ -27,7 +34,8 @@ import * as XLSX from 'xlsx';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatAutocompleteModule
   ],
   templateUrl: './calendario.html',
   styleUrls: ['./calendario.css'],
@@ -36,43 +44,44 @@ import * as XLSX from 'xlsx';
 })
 export class CalendarioComponent implements OnInit {
   nombreBusqueda: string = '';
-  datosExcel: any[] = [];
+  datosExcel: FilaExcel[] = [];
   cargando: boolean = false;
   excelCargado: boolean = false;
+  nombresEmpleados: string[] = [];
+  opcionesFiltradas: string[] = [];
   
   // Guardaremos los francos encontrados como strings en formato 'YYYY-MM-DD' para buscarlos rápido
   francosEmpleado: Set<string> = new Set<string>(); 
   busquedaRealizada: boolean = false;
 
   ngOnInit() {
-    // Cargar el Excel automáticamente desde assets
-    this.cargarExcelDesdeAssets();
+    // Cargar los datos automáticamente desde assets
+    this.cargarDatosDesdeAssets();
   }
 
-  // Cargar Excel desde los assets automáticamente
-  private cargarExcelDesdeAssets() {
+  // Cargar JSON desde los assets automáticamente (mucho más rápido)
+  private cargarDatosDesdeAssets() {
     this.cargando = true;
-    fetch('assets/francos.xlsx')
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => {
-        const data = new Uint8Array(arrayBuffer);
-        const workbook = XLSX.read(data, { type: 'array', cellDates: true });
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
+    fetch('assets/francos.json')
+      .then(response => response.json())
+      .then((data: FilaExcel[]) => {
+        this.datosExcel = data;
+        // Extraemos solo los nombres y descartamos valores vacíos
+        this.nombresEmpleados = data.map(fila => String(fila.Nombre || '')).filter(nombre => nombre.trim() !== '');
+        this.opcionesFiltradas = this.nombresEmpleados;
         
-        this.datosExcel = XLSX.utils.sheet_to_json(worksheet);
         this.excelCargado = true;
         this.cargando = false;
       })
       .catch(error => {
-        console.error('Error cargando el Excel:', error);
+        console.error('Error cargando los datos:', error);
         this.cargando = false;
       });
   }
 
   // 1. Leer el Excel y convertirlo a JSON (para carga manual si es necesario)
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
+  onFileSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
     if (!file) return;
 
     this.cargando = true;
@@ -85,12 +94,22 @@ export class CalendarioComponent implements OnInit {
       const firstSheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[firstSheetName];
       
-      this.datosExcel = XLSX.utils.sheet_to_json(worksheet);
+      this.datosExcel = XLSX.utils.sheet_to_json<FilaExcel>(worksheet);
+      // Actualizamos la lista también en caso de carga manual
+      this.nombresEmpleados = this.datosExcel.map(fila => String(fila.Nombre || '')).filter(nombre => nombre.trim() !== '');
+      this.opcionesFiltradas = this.nombresEmpleados;
+      
       this.excelCargado = true;
       this.cargando = false;
     };
 
     fileReader.readAsArrayBuffer(file);
+  }
+
+  // Filtra las opciones del autocompletado basándose en lo que escribe el usuario
+  filtrarOpciones(valor: string) {
+    const valorMin = valor.toLowerCase().trim();
+    this.opcionesFiltradas = this.nombresEmpleados.filter(nombre => nombre.toLowerCase().includes(valorMin));
   }
 
   // 2. Buscar al empleado y mapear sus días Franco
@@ -102,7 +121,7 @@ export class CalendarioComponent implements OnInit {
     const termino = this.nombreBusqueda.toLowerCase().trim();
 
     // Buscamos la fila del empleado
-    const filaEmpleado = this.datosExcel.find(fila => 
+    const filaEmpleado = this.datosExcel.find((fila: FilaExcel) => 
       Object.values(fila).some(val => String(val).toLowerCase().includes(termino))
     );
 
@@ -115,8 +134,11 @@ export class CalendarioComponent implements OnInit {
           // Intentamos convertir el nombre de la columna en una fecha válida.
           // Esto asume que tus columnas del Excel se llaman como las fechas (ej: "2026-05-15" o "15/05/2026")
           const fechaParseada = new Date(columna);
+          
           if (!isNaN(fechaParseada.getTime())) {
-            this.francosEmpleado.add(this.formatDate(fechaParseada));
+            // Utilizamos UTC para evitar que el ajuste de zona horaria local retroceda 1 día la fecha
+            const fechaUTC = new Date(fechaParseada.getTime() + fechaParseada.getTimezoneOffset() * 60000);
+            this.francosEmpleado.add(this.formatDate(fechaUTC));
           }
         }
       });

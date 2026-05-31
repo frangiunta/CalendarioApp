@@ -7,11 +7,12 @@ Busca celdas con "F" o "FRANCO" y mapea los días basándose en las fechas de lo
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment
 from datetime import datetime
+import json
 import re
 
 # Ruta del archivo original
 ARCHIVO_ORIGINAL = '/workspaces/CalendarioApp/app-francos/src/app/3.Nueva Grilla 2026 GIGANET.xlsx'
-ARCHIVO_SALIDA = '/workspaces/CalendarioApp/app-francos/src/assets/francos.xlsx'
+ARCHIVO_SALIDA = '/workspaces/CalendarioApp/app-francos/src/assets/francos.json'
 
 def extraer_fecha_de_encabezado(texto):
     """
@@ -31,8 +32,8 @@ def extraer_fecha_de_encabezado(texto):
     return None
 
 def obtener_nombre_empleado(ws, row_idx):
-    """Obtiene el nombre del empleado de la columna A de una fila."""
-    nombre = ws.cell(row_idx, 1).value
+    """Obtiene el nombre del empleado de la columna B de una fila."""
+    nombre = ws.cell(row_idx, 2).value
     if nombre:
         return str(nombre).strip()
     return None
@@ -127,78 +128,24 @@ def procesar_hoja(wb, nombre_hoja):
     
     return empleados_francos
 
-def crear_excel_compatible(todos_empleados_francos):
+def crear_archivo_compatible(todos_empleados_francos):
     """
-    Crea un nuevo Excel en formato compatible con la app.
-    Formato esperado:
-    | Nombre | 2026-05-01 | 2026-05-02 | ...
-    | Juan   | F          |            | ...
+    Crea un archivo JSON compatible con la app de Angular.
     """
     
-    print("\n📝 Creando Excel compatible...")
+    print("\n📝 Creando JSON compatible...")
     
-    # Crear un nuevo workbook
-    wb_nuevo = openpyxl.Workbook()
-    ws_nuevo = wb_nuevo.active
-    ws_nuevo.title = "Francos"
-    
-    # Recolectar todas las fechas únicas y ordenarlas
-    todas_fechas = set()
-    for francos in todos_empleados_francos.values():
-        todas_fechas.update(francos)
-    
-    fechas_ordenadas = sorted(list(todas_fechas))
-    
-    print(f"  ✓ Total de fechas únicas: {len(fechas_ordenadas)}")
-    print(f"  ✓ Total de empleados: {len(todos_empleados_francos)}")
-    
-    # Encabezados
-    ws_nuevo.cell(1, 1, "Nombre")
-    
-    for col_idx, fecha in enumerate(fechas_ordenadas, start=2):
-        fecha_str = fecha.strftime('%Y-%m-%d')
-        ws_nuevo.cell(1, col_idx, fecha_str)
-    
-    # Datos de empleados
-    for row_idx, (nombre, francos) in enumerate(sorted(todos_empleados_francos.items()), start=2):
-        ws_nuevo.cell(row_idx, 1, nombre)
+    datos_json = []
+    for nombre, francos in sorted(todos_empleados_francos.items()):
+        fila = {"Nombre": nombre}
+        for fecha in francos:
+            fila[fecha.strftime('%Y-%m-%d')] = "F"
+        datos_json.append(fila)
         
-        # Crear un set de fechas para búsqueda rápida
-        francos_set = set(francos)
-        
-        for col_idx, fecha in enumerate(fechas_ordenadas, start=2):
-            if fecha in francos_set:
-                ws_nuevo.cell(row_idx, col_idx, "F")
-    
-    # Estilos básicos
-    header_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
-    header_font = Font(bold=True, color="FFFFFF")
-    franco_fill = PatternFill(start_color="92D050", end_color="92D050", fill_type="solid")
-    
-    # Aplicar estilos a encabezados
-    for col_idx in range(1, len(fechas_ordenadas) + 2):
-        cell = ws_nuevo.cell(1, col_idx)
-        cell.fill = header_fill
-        cell.font = header_font
-        cell.alignment = Alignment(horizontal="center", vertical="center")
-    
-    # Aplicar estilos a los francos
-    for row_idx in range(2, len(todos_empleados_francos) + 2):
-        for col_idx in range(2, len(fechas_ordenadas) + 2):
-            cell = ws_nuevo.cell(row_idx, col_idx)
-            if cell.value == "F":
-                cell.fill = franco_fill
-                cell.alignment = Alignment(horizontal="center", vertical="center")
-    
-    # Ajustar ancho de columnas
-    ws_nuevo.column_dimensions['A'].width = 25
-    for col_idx in range(2, len(fechas_ordenadas) + 2):
-        ws_nuevo.column_dimensions[openpyxl.utils.get_column_letter(col_idx)].width = 12
-    
-    # Guardar
     try:
-        wb_nuevo.save(ARCHIVO_SALIDA)
-        print(f"\n✅ Excel generado exitosamente: {ARCHIVO_SALIDA}")
+        with open(ARCHIVO_SALIDA, 'w', encoding='utf-8') as f:
+            json.dump(datos_json, f, ensure_ascii=False, indent=2)
+        print(f"\n✅ JSON generado exitosamente: {ARCHIVO_SALIDA}")
         return True
     except Exception as e:
         print(f"\n❌ Error al guardar: {e}")
@@ -239,9 +186,9 @@ def main():
                 todos_empleados_francos[nombre] = []
             todos_empleados_francos[nombre].extend(francos)
     
-    # Crear Excel compatible
+    # Crear archivo compatible
     if todos_empleados_francos:
-        crear_excel_compatible(todos_empleados_francos)
+        crear_archivo_compatible(todos_empleados_francos)
         print("\n" + "="*80)
         print("✅ PROCESO COMPLETADO")
         print("="*80)

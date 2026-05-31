@@ -9,22 +9,35 @@
       <!-- Indicador de Excel cargado -->
       <div class="seccion-status" *ngIf="cargando">
         <mat-spinner diameter="30"></mat-spinner>
-        <span class="status-text">Cargando grilla...</span>
+        <span class="status-text">Cargando datos...</span>
       </div>
 
       <div class="seccion-status" *ngIf="excelCargado && !cargando">
         <mat-icon class="status-icon-ok">check_circle</mat-icon>
-        <span class="status-ok">✓ Grilla cargada - {{datosExcel.length}} empleados disponibles</span>
+        <span class="status-ok">✓ Datos cargados - {{datosExcel.length}} empleados disponibles</span>
       </div>
 
       <!-- Sección de búsqueda (visible solo si Excel está cargado) -->
       <div class="seccion-busqueda" *ngIf="excelCargado">
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Nombre del Empleado</mat-label>
-          <input matInput [(ngModel)]="nombreBusqueda" placeholder="Ej: Juan Pérez" (keyup.enter)="buscarFrancos()">
+          
+          <input matInput 
+                 [(ngModel)]="nombreBusqueda" 
+                 (ngModelChange)="filtrarOpciones($event)"
+                 [matAutocomplete]="auto"
+                 placeholder="Ej: Juan Pérez" 
+                 (keyup.enter)="buscarFrancos()">
+          
           <button mat-icon-button matSuffix (click)="buscarFrancos()" color="primary">
             <mat-icon>search</mat-icon>
           </button>
+          
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="buscarFrancos()">
+            <mat-option *ngFor="let opcion of opcionesFiltradas" [value]="opcion">
+              {{ opcion }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </div>
 
