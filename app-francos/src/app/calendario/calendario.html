@@ -1,0 +1,51 @@
+<div style="padding: 20px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+  <h2>Consultar Francos desde Excel</h2>
+
+  <div style="margin-bottom: 20px; border: 1px dashed #007bff; padding: 15px; border-radius: 8px; background-color: #f0f7ff;">
+    <label style="display: block; margin-bottom: 8px; font-weight: bold;">1. Sube tu archivo Excel (.xlsx o .xls):</label>
+    <input type="file" (change)="onFileSelected($event)" accept=".xlsx, .xls" />
+    <p *ngIf="cargando" style="color: #007bff;">Leyendo las tablas, por favor espera...</p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <label style="display: block; margin-bottom: 8px; font-weight: bold;">2. Ingresa el Nombre a consultar:</label>
+    <input 
+      type="text" 
+      [(ngModel)]="nombreBusqueda" 
+      placeholder="Ej: Juan Pérez" 
+      style="width: 60%; padding: 8px; margin-right: 10px; border: 1px solid #ccc; border-radius: 4px;"
+      [disabled]="datosExcel.length === 0"
+    />
+    <button 
+      (click)="buscarFrancos()" 
+      [disabled]="datosExcel.length === 0"
+      style="padding: 8px 15px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;"
+    >
+      Buscar Francos
+    </button>
+  </div>
+
+  <div *ngIf="resultados.length > 0" style="margin-top: 20px;">
+    <h3>Resultados Encontrados:</h3>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px; box-shadow: 0 2px 3px rgba(0,0,0,0.1);">
+        <thead>
+          <tr style="background-color: #343a40; color: white; text-align: left;">
+            <th *ngFor="let col of columnas" style="padding: 10px; border: 1px solid #dee2e6;">{{ col }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fila of resultados" style="background-color: #fff;">
+            <td *ngFor="let col of columnas" style="padding: 10px; border: 1px solid #dee2e6;">
+              {{ fila[col] || '-' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="datosExcel.length > 0 && resultados.length === 0 && nombreBusqueda" style="color: #dc3545; margin-top: 20px; font-weight: bold;">
+    No se encontraron registros que coincidan con "{{ nombreBusqueda }}".
+  </div>
+</div>
