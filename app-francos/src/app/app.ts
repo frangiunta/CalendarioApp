@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CalendarioComponent } from './calendario/calendario';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [CalendarioComponent],
+  template: '<app-calendario></app-calendario>',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('app-francos');
-}
+export class App {}

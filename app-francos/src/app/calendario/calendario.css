@@ -1,0 +1,80 @@
+.contenedor-app {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.seccion-status {
+  padding: 12px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f5f5f5;
+  border-left: 4px solid #2e7d32;
+}
+
+.status-text {
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.status-icon-ok {
+  color: #2e7d32;
+  font-size: 20px;
+}
+
+.seccion-upload {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.status-ok {
+  color: #2e7d32;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.seccion-busqueda {
+  margin-top: 10px;
+}
+
+.tarjeta-calendario {
+  padding: 10px;
+}
+
+/* --- CLASE CRÍTICA PARA ANGULAR MATERIAL --- */
+/* Esta clase se inyecta dinámicamente mediante el TS. Pintamos el fondo del botón del día */
+.dia-franco-custom .mat-calendar-body-cell-content {
+  background-color: #2e7d32 !important; /* Color Verde */
+  color: white !important;
+  border-radius: 50%; /* Hace que sea un círculo perfecto */
+  font-weight: bold;
+}
+
+/* Leyenda indicadora debajo del título */
+.leyenda-franco {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #2e7d32;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.tarjeta-error mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #c62828;
+}
