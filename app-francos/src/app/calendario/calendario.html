@@ -29,6 +29,10 @@
                  placeholder="Ej: Juan Pérez" 
                  (keyup.enter)="buscarFrancos()">
           
+          <button *ngIf="nombreBusqueda" matSuffix mat-icon-button aria-label="Limpiar" (click)="limpiarBusqueda()">
+            <mat-icon>close</mat-icon>
+          </button>
+
           <button mat-icon-button matSuffix (click)="buscarFrancos()" color="primary">
             <mat-icon>search</mat-icon>
           </button>

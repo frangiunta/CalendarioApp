@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,6 +14,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import * as XLSX from 'xlsx';
+
+// Importamos el JSON directamente (Angular lo empaquetará, evitando cualquier error 404 de red)
+// @ts-ignore
+import francosData from '../../assets/francos.json';
 
 // Interfaz para estructurar los datos extraídos del Excel
 interface FilaExcel {
@@ -54,6 +58,8 @@ export class CalendarioComponent implements OnInit {
   francosEmpleado: Set<string> = new Set<string>(); 
   busquedaRealizada: boolean = false;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngOnInit() {
     // Cargar los datos automáticamente desde assets
     this.cargarDatosDesdeAssets();
@@ -62,21 +68,29 @@ export class CalendarioComponent implements OnInit {
   // Cargar JSON desde los assets automáticamente (mucho más rápido)
   private cargarDatosDesdeAssets() {
     this.cargando = true;
-    fetch('assets/francos.json')
-      .then(response => response.json())
-      .then((data: FilaExcel[]) => {
-        this.datosExcel = data;
-        // Extraemos solo los nombres y descartamos valores vacíos
-        this.nombresEmpleados = data.map(fila => String(fila.Nombre || '')).filter(nombre => nombre.trim() !== '');
-        this.opcionesFiltradas = this.nombresEmpleados;
+    
+    try {
+      // Dependiendo del compilador, los datos pueden venir en .default o directamente en el objeto
+      const data: FilaExcel[] = francosData.default ? francosData.default : francosData;
+
+      this.datosExcel = data;
+      
+      // Extraemos solo los nombres, descartamos vacíos y valores que sean estrictamente numéricos (ej. "2", "4")
+      this.nombresEmpleados = data
+        .map((fila: FilaExcel) => String(fila.Nombre || ''))
+        .filter((nombre: string) => nombre.trim() !== '' && isNaN(Number(nombre)));
         
-        this.excelCargado = true;
-        this.cargando = false;
-      })
-      .catch(error => {
-        console.error('Error cargando los datos:', error);
-        this.cargando = false;
-      });
+      // Limitamos a 50 opciones para evitar que el navegador se congele renderizando HTML masivo
+      this.opcionesFiltradas = this.nombresEmpleados.slice(0, 50);
+      
+      this.excelCargado = true;
+      this.cargando = false;
+      this.cdr.detectChanges();
+    } catch (error) {
+      console.error('Error procesando los datos JSON importados:', error);
+      this.cargando = false;
+      this.cdr.detectChanges();
+    }
   }
 
   // 1. Leer el Excel y convertirlo a JSON (para carga manual si es necesario)
@@ -95,9 +109,12 @@ export class CalendarioComponent implements OnInit {
       const worksheet = workbook.Sheets[firstSheetName];
       
       this.datosExcel = XLSX.utils.sheet_to_json<FilaExcel>(worksheet);
-      // Actualizamos la lista también en caso de carga manual
-      this.nombresEmpleados = this.datosExcel.map(fila => String(fila.Nombre || '')).filter(nombre => nombre.trim() !== '');
-      this.opcionesFiltradas = this.nombresEmpleados;
+      
+      // Actualizamos la lista también en caso de carga manual (ignorando números)
+      this.nombresEmpleados = this.datosExcel
+        .map(fila => String(fila.Nombre || ''))
+        .filter(nombre => nombre.trim() !== '' && isNaN(Number(nombre)));
+      this.opcionesFiltradas = this.nombresEmpleados.slice(0, 50);
       
       this.excelCargado = true;
       this.cargando = false;
@@ -106,10 +123,25 @@ export class CalendarioComponent implements OnInit {
     fileReader.readAsArrayBuffer(file);
   }
 
+  // Elimina acentos/tildes para que buscar "gaston" encuentre "GASTÓN"
+  private normalizarTexto(texto: string): string {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  }
+
   // Filtra las opciones del autocompletado basándose en lo que escribe el usuario
   filtrarOpciones(valor: string) {
-    const valorMin = valor.toLowerCase().trim();
-    this.opcionesFiltradas = this.nombresEmpleados.filter(nombre => nombre.toLowerCase().includes(valorMin));
+    const valorNormalizado = this.normalizarTexto(valor);
+    this.opcionesFiltradas = this.nombresEmpleados
+      .filter(nombre => this.normalizarTexto(nombre).includes(valorNormalizado))
+      .slice(0, 50); // Mantener un máximo de 50 resultados garantiza fluidez
+  }
+
+  // Limpia el buscador y el calendario
+  limpiarBusqueda() {
+    this.nombreBusqueda = '';
+    this.opcionesFiltradas = this.nombresEmpleados.slice(0, 50);
+    this.francosEmpleado.clear();
+    this.busquedaRealizada = false;
   }
 
   // 2. Buscar al empleado y mapear sus días Franco
@@ -118,11 +150,11 @@ export class CalendarioComponent implements OnInit {
     
     this.francosEmpleado.clear();
     this.busquedaRealizada = true;
-    const termino = this.nombreBusqueda.toLowerCase().trim();
+    const termino = this.normalizarTexto(this.nombreBusqueda);
 
-    // Buscamos la fila del empleado
+    // Buscamos la fila del empleado (Consultando únicamente la propiedad "Nombre", mucho más rápido)
     const filaEmpleado = this.datosExcel.find((fila: FilaExcel) => 
-      Object.values(fila).some(val => String(val).toLowerCase().includes(termino))
+      this.normalizarTexto(String(fila.Nombre || '')).includes(termino)
     );
 
     if (filaEmpleado) {
