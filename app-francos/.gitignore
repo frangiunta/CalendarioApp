@@ -43,3 +43,10 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 .vercel
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
