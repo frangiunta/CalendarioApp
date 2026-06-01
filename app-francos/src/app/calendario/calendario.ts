@@ -15,8 +15,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import * as XLSX from 'xlsx';
 
-
 import francosData from '../../assets/grilla_completa_2025_2027.json';
+import backofficeData from '../../assets/gemini-code-1780341396539.json';
 
 interface FilaExcel {
   Nombre?: string;
@@ -26,6 +26,21 @@ interface FilaExcel {
   estado?: string;
   horarios?: string[];
   [key: string]: any;
+}
+
+interface RawBackofficeCronograma {
+  cronograma: Record<string, Array<{
+    fecha: string;
+    dia: string;
+    turnos: Array<{ nombre: string; horario: string }>;
+  }>>;
+}
+
+interface BackofficeRow {
+  fecha: string;
+  dia: string;
+  nombre: string;
+  horario: string;
 }
 
 @Component({
@@ -58,14 +73,19 @@ export class CalendarioComponent implements OnInit {
   nombresEmpleados: string[] = [];
   opcionesFiltradas: string[] = [];
 
+  backofficeRows: BackofficeRow[] = [];
+  backofficeFilter: string = '';
+  backofficeRowsFiltrados: BackofficeRow[] = [];
+  backofficeMaxRows: number = 250;
+
   francosEmpleado: Set<string> = new Set<string>(); 
   busquedaRealizada: boolean = false;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-
     this.cargarDatosDesdeAssets();
+    this.cargarBackofficeDesdeAssets();
   }
 
   private extraerNombreEmpleado(empRaw: string): string {
@@ -148,6 +168,41 @@ export class CalendarioComponent implements OnInit {
     };
 
     fileReader.readAsArrayBuffer(file);
+  }
+
+  private cargarBackofficeDesdeAssets() {
+    try {
+      const raw: RawBackofficeCronograma = (backofficeData as any).default ? (backofficeData as any).default : backofficeData;
+      this.backofficeRows = Object.values(raw.cronograma)
+        .flatMap((dias) =>
+          dias.flatMap((dia) =>
+            (Array.isArray(dia.turnos) ? dia.turnos : []).map((turno) => ({
+              fecha: dia.fecha,
+              dia: dia.dia,
+              nombre: String(turno.nombre || '').trim(),
+              horario: String(turno.horario || '').trim()
+            }))
+          )
+        );
+      this.actualizarBackofficeFiltrados();
+    } catch (error) {
+      console.error('Error procesando el JSON de backoffice:', error);
+    }
+  }
+
+  actualizarBackofficeFiltrados() {
+    const filtro = this.normalizarTexto(this.backofficeFilter || '');
+    this.backofficeRowsFiltrados = this.backofficeRows
+      .filter((row) => {
+        if (!filtro) return true;
+        const texto = [row.fecha, row.dia, row.nombre, row.horario].join(' ');
+        return this.normalizarTexto(texto).includes(filtro);
+      })
+      .slice(0, filtro ? this.backofficeRows.length : this.backofficeMaxRows);
+  }
+
+  formatHorarios(horarios: string[] = []): string {
+    return horarios.join(', ');
   }
 
   private normalizarTexto(texto: string): string {

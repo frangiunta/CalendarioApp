@@ -45,7 +45,47 @@
         </mat-form-field>
       </div>
 
-      
+      <mat-card class="tarjeta-backoffice" *ngIf="excelCargado">
+        <mat-card-header>
+          <mat-card-title>Horarios Backoffice</mat-card-title>
+          <mat-card-subtitle>{{ backofficeRowsFiltrados.length }} registros</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Filtrar Backoffice</mat-label>
+            <input matInput
+                   [(ngModel)]="backofficeFilter"
+                   (ngModelChange)="actualizarBackofficeFiltrados()"
+                   placeholder="Buscar por fecha, día, empleado u horario" />
+          </mat-form-field>
+
+          <div class="tabla-scroll">
+            <table class="tabla-backoffice">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Día</th>
+                  <th>Empleado</th>
+                  <th>Horarios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of backofficeRowsFiltrados">
+                  <td>{{ row.fecha }}</td>
+                  <td>{{ row.dia }}</td>
+                  <td>{{ row.nombre }}</td>
+                  <td>{{ row.horario }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="nota-tabla" *ngIf="backofficeRows.length > backofficeMaxRows && !backofficeFilter">
+            Se muestran los primeros {{ backofficeMaxRows }} registros. Use el filtro para ver más resultados.
+          </div>
+        </mat-card-content>
+      </mat-card>
+    
     </mat-card-content>
   </mat-card>
 
