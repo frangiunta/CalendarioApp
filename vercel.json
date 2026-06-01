@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "builds": [
     {
       "src": "app-francos/package.json",
@@ -8,8 +8,7 @@
         "distDir": "app-francos/dist/app-francos"
       }
     }
-  ],
-  "routes": [
+  ],  "outputDirectory": "app-francos/dist/app-francos",  "routes": [
     {
       "src": "/(.*)",
       "dest": "/$1"
