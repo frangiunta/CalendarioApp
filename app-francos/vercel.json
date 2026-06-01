@@ -1,21 +1,4 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app-francos/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/app-francos"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "app-francos/dist/app-francos/$1"
-    }
-  ]
+  "outputDirectory": "app-francos/dist/app-francos"
 }
