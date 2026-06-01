@@ -46,11 +46,18 @@
       </div>
 
       <mat-card class="tarjeta-backoffice" *ngIf="excelCargado">
-        <mat-card-header>
-          <mat-card-title>Horarios Backoffice</mat-card-title>
-          <mat-card-subtitle>{{ backofficeRowsFiltrados.length }} registros</mat-card-subtitle>
+        <mat-card-header class="tarjeta-backoffice-header">
+          <div class="header-titles">
+            <mat-card-title>Horarios Backoffice</mat-card-title>
+            <mat-card-subtitle>{{ backofficeRowsFiltrados.length }} registros</mat-card-subtitle>
+          </div>
+          <div class="header-actions">
+            <button mat-icon-button aria-label="Minimizar/Expandir" (click)="toggleBackoffice()">
+              <mat-icon>{{ backofficeCollapsed ? 'expand_more' : 'expand_less' }}</mat-icon>
+            </button>
+          </div>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content *ngIf="!backofficeCollapsed">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Filtrar Backoffice</mat-label>
             <input matInput

@@ -77,6 +77,7 @@ export class CalendarioComponent implements OnInit {
   backofficeFilter: string = '';
   backofficeRowsFiltrados: BackofficeRow[] = [];
   backofficeMaxRows: number = 250;
+  backofficeCollapsed: boolean = false;
 
   francosEmpleado: Set<string> = new Set<string>(); 
   busquedaRealizada: boolean = false;
@@ -86,6 +87,10 @@ export class CalendarioComponent implements OnInit {
   ngOnInit() {
     this.cargarDatosDesdeAssets();
     this.cargarBackofficeDesdeAssets();
+  }
+
+  toggleBackoffice() {
+    this.backofficeCollapsed = !this.backofficeCollapsed;
   }
 
   private extraerNombreEmpleado(empRaw: string): string {

@@ -84,6 +84,22 @@
   padding: 10px;
 }
 
+.tarjeta-backoffice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tarjeta-backoffice-header .header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-backoffice-header .header-actions {
+  display: flex;
+  align-items: center;
+}
+
 
 
 .dia-franco-custom .mat-calendar-body-cell-content {
