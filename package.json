@@ -8,6 +8,6 @@
     "test": "cd app-francos && npm run test"
   },
   "dependencies": {
-    "pdfjs-dist": "^6.0.227"
+    "@angular/cli": "^21.2.13"
   }
 }
