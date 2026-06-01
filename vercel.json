@@ -5,13 +5,17 @@
       "src": "app-francos/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "app-francos/dist/app-francos"
+        "distDir": "dist/browser"
       }
     }
-  ],  "outputDirectory": "app-francos/dist/app-francos",  "routes": [
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "app-francos/dist/$1"
     }
   ]
 }

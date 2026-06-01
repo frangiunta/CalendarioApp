@@ -20,7 +20,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar el paquete ya listo desde la Etapa 1
-COPY --from=builder /app/dist/app-francos /usr/share/nginx/html
+COPY --from=builder /app/dist/app-francos/browser /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
