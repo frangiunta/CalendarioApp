@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "builds": [
+    {
+      "src": "app-francos/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "app-francos/dist/app-francos"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
