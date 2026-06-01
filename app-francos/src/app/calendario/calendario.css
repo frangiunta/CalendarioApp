@@ -53,16 +53,16 @@
   padding: 10px;
 }
 
-/* --- CLASE CRÍTICA PARA ANGULAR MATERIAL --- */
-/* Esta clase se inyecta dinámicamente mediante el TS. Pintamos el fondo del botón del día */
+
+
 .dia-franco-custom .mat-calendar-body-cell-content {
-  background-color: #2e7d32 !important; /* Color Verde */
+  background-color: #2e7d32 !important; 
   color: white !important;
-  border-radius: 50%; /* Hace que sea un círculo perfecto */
+  border-radius: 50%; 
   font-weight: bold;
 }
 
-/* Leyenda indicadora debajo del título */
+
 .leyenda-franco {
   display: inline-block;
   width: 12px;
@@ -77,4 +77,22 @@
   align-items: center;
   gap: 10px;
   color: #c62828;
+}
+
+.lista-empleados {
+  max-height: 240px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lista-empleados .mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emp-nombre {
+  font-weight: 500;
 }

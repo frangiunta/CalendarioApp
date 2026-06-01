@@ -6,7 +6,7 @@
     </mat-card-header>
     
     <mat-card-content style="margin-top: 20px;">
-      <!-- Indicador de Excel cargado -->
+      
       <div class="seccion-status" *ngIf="cargando">
         <mat-spinner diameter="30"></mat-spinner>
         <span class="status-text">Cargando datos...</span>
@@ -14,10 +14,10 @@
 
       <div class="seccion-status" *ngIf="excelCargado && !cargando">
         <mat-icon class="status-icon-ok">check_circle</mat-icon>
-        <span class="status-ok">✓ Datos cargados - {{datosExcel.length}} empleados disponibles</span>
+        <span class="status-ok">✓ Datos cargados </span>
       </div>
 
-      <!-- Sección de búsqueda (visible solo si Excel está cargado) -->
+      
       <div class="seccion-busqueda" *ngIf="excelCargado">
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Nombre del Empleado</mat-label>
@@ -45,13 +45,7 @@
         </mat-form-field>
       </div>
 
-      <!-- Opción para cargar otro Excel manualmente (opcional) -->
-      <div class="seccion-upload" *ngIf="excelCargado">
-        <button mat-button color="primary" (click)="fileInput.click()" style="font-size: 0.9em;">
-          <mat-icon>upload_file</mat-icon> Cargar otro Excel
-        </button>
-        <input #fileInput type="file" (change)="onFileSelected($event)" accept=".xlsx, .xls" style="display:none;" />
-      </div>
+      
     </mat-card-content>
   </mat-card>
 
@@ -64,6 +58,12 @@
       <mat-card-content>
         <mat-calendar [dateClass]="dateClass" class="calendario-material-custom"></mat-calendar>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" (click)="exportCalendarioIcs()">
+          <mat-icon>download</mat-icon>
+          Exportar calendario .ics
+        </button>
+      </mat-card-actions>
     </mat-card>
 
     <mat-card class="tarjeta-error" *ngIf="francosEmpleado.size === 0">
