@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "app-francos/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/browser"
+        "distDir": "app-francos/dist/app-francos/browser"
       }
     }
   ],
@@ -15,7 +15,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "app-francos/dist/$1"
+      "dest": "/index.html"
     }
   ]
 }

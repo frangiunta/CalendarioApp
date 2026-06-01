@@ -1,4 +1,4 @@
 {
   "version": 2,
-  "outputDirectory": "app-francos/dist/app-francos"
+  "outputDirectory": "dist/app-francos/browser"
 }

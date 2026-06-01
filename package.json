@@ -1,4 +1,12 @@
 {
+  "name": "calendario-app",
+  "version": "1.0.0",
+  "description": "Calendario de francos - App para visualizar días no laborables",
+  "scripts": {
+    "build": "cd app-francos && npm run build",
+    "dev": "cd app-francos && npm run start",
+    "test": "cd app-francos && npm run test"
+  },
   "dependencies": {
     "pdfjs-dist": "^6.0.227"
   }
