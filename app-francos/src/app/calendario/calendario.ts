@@ -71,7 +71,7 @@ export class CalendarioComponent implements OnInit {
     
     try {
       // Dependiendo del compilador, los datos pueden venir en .default o directamente en el objeto
-      const data: FilaExcel[] = francosData.default ? francosData.default : francosData;
+      const data: FilaExcel[] = (francosData as any).default ? (francosData as any).default : francosData;
 
       this.datosExcel = data;
       
@@ -163,14 +163,18 @@ export class CalendarioComponent implements OnInit {
         const valorCelda = String(filaEmpleado[columna]).trim().toUpperCase();
         
         if (valorCelda === 'F' || valorCelda === 'FRANCO') {
-          // Intentamos convertir el nombre de la columna en una fecha válida.
-          // Esto asume que tus columnas del Excel se llaman como las fechas (ej: "2026-05-15" o "15/05/2026")
-          const fechaParseada = new Date(columna);
-          
-          if (!isNaN(fechaParseada.getTime())) {
-            // Utilizamos UTC para evitar que el ajuste de zona horaria local retroceda 1 día la fecha
-            const fechaUTC = new Date(fechaParseada.getTime() + fechaParseada.getTimezoneOffset() * 60000);
-            this.francosEmpleado.add(this.formatDate(fechaUTC));
+          // Si la fecha ya viene en formato YYYY-MM-DD directo del JSON, la agregamos al instante
+          if (/^\d{4}-\d{2}-\d{2}$/.test(columna)) {
+            this.francosEmpleado.add(columna);
+          } else {
+            // Si viene de un Excel manual, intentamos parsear el nombre de la columna como fecha
+            const fechaParseada = new Date(columna);
+            
+            if (!isNaN(fechaParseada.getTime())) {
+              // Utilizamos UTC para evitar que el ajuste de zona horaria local retroceda 1 día la fecha
+              const fechaUTC = new Date(fechaParseada.getTime() + fechaParseada.getTimezoneOffset() * 60000);
+              this.francosEmpleado.add(this.formatDate(fechaUTC));
+            }
           }
         }
       });

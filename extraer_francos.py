@@ -99,20 +99,18 @@ def procesar_hoja(wb, nombre_hoja):
         for fecha_key in sorted(fechas_columnas.keys()):
             columnas_del_dia = fechas_columnas[fecha_key]
             
-            # Verificar si tiene "P" (turno presente) en alguna columna del día
-            tiene_presente = False
+            es_franco = False
             
             for col_idx in columnas_del_dia:
                 celda_valor = ws.cell(row_idx, col_idx).value
                 
-                # Solo "P" indica que tiene turno asignado
-                if celda_valor and str(celda_valor).strip().upper() == 'P':
-                    tiene_presente = True
-                    break
+                if celda_valor:
+                    val_str = str(celda_valor).strip().upper()
+                    if val_str == 'F' or val_str == 'FRANCO':
+                        es_franco = True
+                        break
             
-            # Si NO tiene "P", es franco (aunque tenga número u otro marcador)
-            if not tiene_presente:
-                # Convertir fecha string a datetime para mantener consistencia
+            if es_franco:
                 try:
                     fecha = datetime.strptime(fecha_key, '%Y-%m-%d')
                     francos.append(fecha)
