@@ -44,6 +44,12 @@ interface BackofficeRow {
   imagenUrl?: string;
 }
 
+interface BackofficeGroup {
+  fecha: string;
+  dia: string;
+  filas: BackofficeRow[];
+}
+
 @Component({
   selector: 'app-calendario',
   standalone: true,
@@ -77,6 +83,7 @@ export class CalendarioComponent implements OnInit {
   backofficeRows: BackofficeRow[] = [];
   backofficeFilter: string = '';
   backofficeRowsFiltrados: BackofficeRow[] = [];
+  backofficeGroups: BackofficeGroup[] = [];
   backofficeMaxRows: number = 250;
   backofficeCollapsed: boolean = false;
 
@@ -222,6 +229,16 @@ export class CalendarioComponent implements OnInit {
         return this.normalizarTexto(texto).includes(filtro);
       })
       .slice(0, filtro ? this.backofficeRows.length : this.backofficeMaxRows);
+      
+    // Agrupar los resultados filtrados por fecha
+    const gruposMap = new Map<string, BackofficeGroup>();
+    for (const row of this.backofficeRowsFiltrados) {
+      if (!gruposMap.has(row.fecha)) {
+        gruposMap.set(row.fecha, { fecha: row.fecha, dia: row.dia, filas: [] });
+      }
+      gruposMap.get(row.fecha)!.filas.push(row);
+    }
+    this.backofficeGroups = Array.from(gruposMap.values());
   }
 
   formatHorarios(horarios: string[] = []): string {

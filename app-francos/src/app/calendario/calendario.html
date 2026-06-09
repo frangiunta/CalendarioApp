@@ -71,14 +71,16 @@
               <thead>
                 <tr>
                   <th>Perfil</th>
-                  <th>Fecha</th>
-                  <th>Día</th>
                   <th>Empleado</th>
                   <th>Horarios</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr *ngFor="let row of backofficeRowsFiltrados">
+              <ng-container *ngFor="let grupo of backofficeGroups">
+                <tbody>
+                  <tr class="fila-grupo-fecha">
+                    <td colspan="3"><strong>{{ grupo.dia }} - {{ grupo.fecha }}</strong></td>
+                  </tr>
+                  <tr *ngFor="let row of grupo.filas">
                   <td>
                     <img 
                       [src]="row.imagenUrl || './assets/empleados/default.png'" 
@@ -87,12 +89,11 @@
                       (error)="!$event.target.src.includes('default.png') ? $event.target.src='./assets/empleados/default.png' : null"
                     >
                   </td>
-                  <td>{{ row.fecha }}</td>
-                  <td>{{ row.dia }}</td>
                   <td>{{ row.nombre }}</td>
                   <td>{{ row.horario }}</td>
                 </tr>
-              </tbody>
+                </tbody>
+              </ng-container>
             </table>
           </div>
 
