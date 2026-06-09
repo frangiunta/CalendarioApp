@@ -143,3 +143,11 @@
 .emp-nombre {
   font-weight: 500;
 }
+
+.empleado-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Hace la imagen perfectamente circular */
+  object-fit: cover;  /* Evita que la imagen se estire o deforme */
+  vertical-align: middle;
+}

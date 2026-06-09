@@ -70,6 +70,7 @@
             <table class="tabla-backoffice">
               <thead>
                 <tr>
+                  <th>Perfil</th>
                   <th>Fecha</th>
                   <th>Día</th>
                   <th>Empleado</th>
@@ -78,6 +79,14 @@
               </thead>
               <tbody>
                 <tr *ngFor="let row of backofficeRowsFiltrados">
+                  <td>
+                    <img 
+                      [src]="row.imagenUrl || './assets/empleados/default.png'" 
+                      [alt]="'Foto de ' + row.nombre"
+                      class="empleado-avatar"
+                      (error)="!$event.target.src.includes('default.png') ? $event.target.src='./assets/empleados/default.png' : null"
+                    >
+                  </td>
                   <td>{{ row.fecha }}</td>
                   <td>{{ row.dia }}</td>
                   <td>{{ row.nombre }}</td>

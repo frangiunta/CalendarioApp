@@ -41,6 +41,7 @@ interface BackofficeRow {
   dia: string;
   nombre: string;
   horario: string;
+  imagenUrl?: string;
 }
 
 @Component({
@@ -91,6 +92,19 @@ export class CalendarioComponent implements OnInit {
 
   toggleBackoffice() {
     this.backofficeCollapsed = !this.backofficeCollapsed;
+  }
+
+  private getImagenUrlPorNombre(nombreCompleto: string): string {
+    if (!nombreCompleto) {
+      return './assets/empleados/default.png'; // Imagen por defecto
+    }
+    // Extrae el nombre, por ej. "DEBORA" de "1 DEBORA"
+    const nombreRaw = this.extraerNombreEmpleado(nombreCompleto).split(' ')[0];
+    const nombre = this.normalizarTexto(nombreRaw); // Quita tildes y pasa a minúsculas
+    if (!nombre) {
+        return './assets/empleados/default.png';
+    }
+    return `./assets/empleados/${nombre}.jpg`;
   }
 
   private extraerNombreEmpleado(empRaw: string): string {
@@ -181,12 +195,16 @@ export class CalendarioComponent implements OnInit {
       this.backofficeRows = Object.values(raw.cronograma)
         .flatMap((dias) =>
           dias.flatMap((dia) =>
-            (Array.isArray(dia.turnos) ? dia.turnos : []).map((turno) => ({
-              fecha: dia.fecha,
-              dia: dia.dia,
-              nombre: String(turno.nombre || '').trim(),
-              horario: String(turno.horario || '').trim()
-            }))
+            (Array.isArray(dia.turnos) ? dia.turnos : []).map((turno) => {
+              const nombreCompleto = String(turno.nombre || '').trim();
+              return {
+                fecha: dia.fecha,
+                dia: dia.dia,
+                nombre: nombreCompleto,
+                horario: String(turno.horario || '').trim(),
+                imagenUrl: this.getImagenUrlPorNombre(nombreCompleto)
+              };
+            })
           )
         );
       this.actualizarBackofficeFiltrados();
