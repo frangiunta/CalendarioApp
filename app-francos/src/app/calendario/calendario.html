@@ -44,7 +44,30 @@
           </mat-autocomplete>
         </mat-form-field>
       </div>
+<div class="contenedor-resultado" *ngIf="busquedaRealizada">
+    <mat-card class="tarjeta-calendario" *ngIf="francosEmpleado.size > 0">
+      <mat-card-header>
+        <mat-card-title>Días Libres de: {{ nombreBusqueda | titlecase }}</mat-card-title>
+        <mat-card-subtitle><span class="leyenda-franco"></span> Días de Franco</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-calendar [dateClass]="dateClass" class="calendario-material-custom"></mat-calendar>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="accent" (click)="exportCalendarioIcs()">
+          <mat-icon>download</mat-icon>
+          Exportar calendario .ics
+        </button>
+      </mat-card-actions>
+    </mat-card>
 
+    <mat-card class="tarjeta-error" *ngIf="francosEmpleado.size === 0">
+      <mat-card-content>
+        <mat-icon color="warn">error_outline</mat-icon>
+        No se encontraron francos registrados para "{{ nombreBusqueda }}". Verifique el nombre o las fechas del Excel.
+      </mat-card-content>
+    </mat-card>
+  </div>
       <mat-card class="tarjeta-backoffice" *ngIf="excelCargado">
         <mat-card-header class="tarjeta-backoffice-header">
           <div class="header-titles">
@@ -106,29 +129,6 @@
     </mat-card-content>
   </mat-card>
 
-  <div class="contenedor-resultado" *ngIf="busquedaRealizada">
-    <mat-card class="tarjeta-calendario" *ngIf="francosEmpleado.size > 0">
-      <mat-card-header>
-        <mat-card-title>Días Libres de: {{ nombreBusqueda | titlecase }}</mat-card-title>
-        <mat-card-subtitle><span class="leyenda-franco"></span> Días de Franco</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-calendar [dateClass]="dateClass" class="calendario-material-custom"></mat-calendar>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="accent" (click)="exportCalendarioIcs()">
-          <mat-icon>download</mat-icon>
-          Exportar calendario .ics
-        </button>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="tarjeta-error" *ngIf="francosEmpleado.size === 0">
-      <mat-card-content>
-        <mat-icon color="warn">error_outline</mat-icon>
-        No se encontraron francos registrados para "{{ nombreBusqueda }}". Verifique el nombre o las fechas del Excel.
-      </mat-card-content>
-    </mat-card>
-  </div>
+  
 
 </div>

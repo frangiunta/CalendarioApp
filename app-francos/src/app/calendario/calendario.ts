@@ -16,7 +16,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import * as XLSX from 'xlsx';
 
 import francosData from '../../assets/grilla_completa_2025_2027.json';
-import backofficeData from '../../assets/gemini-code-1780341396539.json';
+import backofficeData from '../../assets/backoffice_excel_limpio.json';
 
 interface FilaExcel {
   Nombre?: string;

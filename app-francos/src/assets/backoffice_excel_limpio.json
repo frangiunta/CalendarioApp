@@ -1,0 +1,1568 @@
+{
+  "cronograma": {
+    "semana_1": [
+      {
+        "fecha": "06/07/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "07/07/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "08/07/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "09/07/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "EVA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "10/07/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "11/07/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          }
+        ]
+      },
+      {
+        "fecha": "12/07/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      }
+    ],
+    "semana_2": [
+      {
+        "fecha": "13/07/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "14/07/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "15/07/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "16/07/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "17/07/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "18/07/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          }
+        ]
+      },
+      {
+        "fecha": "19/07/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "DEBORA",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      }
+    ],
+    "semana_3": [
+      {
+        "fecha": "20/07/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "21/07/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "22/07/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "23/07/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "24/07/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "25/07/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          }
+        ]
+      },
+      {
+        "fecha": "26/07/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      }
+    ],
+    "semana_4": [
+      {
+        "fecha": "27/07/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 1s:00"
+          },
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "28/07/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "29/07/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "30/07/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "31/07/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "01/08/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          }
+        ]
+      },
+      {
+        "fecha": "02/08/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "EVA",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          }
+        ]
+      }
+    ],
+    "semana_5": [
+      {
+        "fecha": "03/08/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "DORA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "04/08/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "05/08/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "06/08/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "07/08/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "08/08/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "09/08/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "11:00 - 17:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      }
+    ],
+    "semana_6": [
+      {
+        "fecha": "10/08/2026",
+        "dia": "Lun",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NOFAR",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "ADRIAN",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "NUEVO2",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "11/08/2026",
+        "dia": "Mar",
+        "turnos": [
+          {
+            "nombre": "TOMAS",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AZUL",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "NICOLAS",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "PAOLA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "AGUILERA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "12/08/2026",
+        "dia": "Mie",
+        "turnos": [
+          {
+            "nombre": "SANTIAGO",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "AGUSTIN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "BRAIAN",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "NUEVO3",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "SOFIA",
+            "horario": "14:00 - 20:00"
+          },
+          {
+            "nombre": "FAUSTO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "13/08/2026",
+        "dia": "Jue",
+        "turnos": [
+          {
+            "nombre": "DORA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "CORREA",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "DANIEL",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "DEBORA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "GUIDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "ANTHONY",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "NAHIR",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "LEONEL",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "14/08/2026",
+        "dia": "Vie",
+        "turnos": [
+          {
+            "nombre": "GIANCLUCA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "GASTON",
+            "horario": "09:00 - 15:00"
+          },
+          {
+            "nombre": "JESUS",
+            "horario": "09:00 - 18:00"
+          },
+          {
+            "nombre": "MELINA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "NAIARA",
+            "horario": "10:00 - 16:00"
+          },
+          {
+            "nombre": "ALDO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "FRANCISCO",
+            "horario": "15:00 - 21:00"
+          },
+          {
+            "nombre": "PARDO",
+            "horario": "16:00 - 22:00"
+          },
+          {
+            "nombre": "NUEVO1",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "15/08/2026",
+        "dia": "Sab",
+        "turnos": [
+          {
+            "nombre": "EVA",
+            "horario": "08:00 - 14:00"
+          },
+          {
+            "nombre": "JULIETA",
+            "horario": "15:00 - 22:00"
+          },
+          {
+            "nombre": "CHRISTIAN",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      },
+      {
+        "fecha": "16/08/2026",
+        "dia": "Dom",
+        "turnos": [
+          {
+            "nombre": "EUGENIA",
+            "horario": "16:00 - 22:00"
+          }
+        ]
+      }
+    ]
+  }
+}
