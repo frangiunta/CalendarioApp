@@ -1,1 +1,16 @@
-{"projectId":"prj_EfUNOcWg8nN3FHAVsCjmaCEk5L2t","orgId":"team_4xNrZhhRXLNpL5e3AT4qhFIG","projectName":"grilla-app"}
+{
+  "projectId": "prj_KTHR7oyARxhpdr2WfWxglko74ZSO",
+  "orgId": "team_4xNrZhhRXLNpL5e3AT4qhFIG",
+  "projectName": "francos",
+  "settings": {
+    "createdAt": 1784009523991,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

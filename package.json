@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Calendario de francos - App para visualizar días no laborables",
   "scripts": {
-    "build": "npx --prefix app-francos ng build",
+    "build": "npm --prefix app-francos ci && npm --prefix app-francos run build",
     "dev": "cd app-francos && npm run start",
     "test": "cd app-francos && npm run test"
   },
